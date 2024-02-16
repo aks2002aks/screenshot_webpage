@@ -41,6 +41,7 @@ const Screenshot = () => {
       setLoading(false);
       toast.error(data.message);
     }
+    setLoading(false);
   };
 
   const handleDownload = async () => {
