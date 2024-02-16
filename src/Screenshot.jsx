@@ -20,16 +20,6 @@ const Screenshot = () => {
       return;
     }
 
-    await toast.promise(fetchImageUrl(), {
-      loading: "Getting Screenshot...",
-      success: <b>Image Fetched!</b>,
-      error: <b>Couldn't Fetch.</b>,
-    });
-
-    setLoading(false);
-  };
-
-  const fetchImageUrl = async () => {
     setLoading(true);
     const response = await fetch(
       `${process.env.REACT_APP_API_URL}/api/saveImageAndGetImageUrl`,
@@ -38,7 +28,6 @@ const Screenshot = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        mode: "no-cors",
         body: JSON.stringify({ url }),
       }
     );
@@ -47,8 +36,10 @@ const Screenshot = () => {
     if (data.success) {
       setScreenshotUrl(data.imageUrl);
       setLoading(false);
+      toast.success("Screenshot taken successfully");
     } else {
       setLoading(false);
+      toast.error(data.message);
     }
   };
 
