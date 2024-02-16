@@ -25,7 +25,7 @@ const Screenshot = () => {
       success: <b>Image Fetched!</b>,
       error: <b>Couldn't Fetch.</b>,
     });
-    
+
     setLoading(false);
   };
 
@@ -44,12 +44,10 @@ const Screenshot = () => {
     const data = await response.json();
 
     if (data.success) {
-      console.log(data);
       setScreenshotUrl(data.imageUrl);
       setLoading(false);
     } else {
       setLoading(false);
-      return Promise.reject(data.message);
     }
   };
 
