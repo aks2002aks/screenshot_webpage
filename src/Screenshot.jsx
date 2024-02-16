@@ -20,11 +20,13 @@ const Screenshot = () => {
       return;
     }
 
-    toast.promise(fetchImageUrl(), {
+    await toast.promise(fetchImageUrl(), {
       loading: "Getting Screenshot...",
       success: <b>Image Fetched!</b>,
       error: <b>Couldn't Fetch.</b>,
     });
+    
+    setLoading(false);
   };
 
   const fetchImageUrl = async () => {
@@ -44,10 +46,11 @@ const Screenshot = () => {
     if (data.success) {
       console.log(data);
       setScreenshotUrl(data.imageUrl);
+      setLoading(false);
     } else {
+      setLoading(false);
       return Promise.reject(data.message);
     }
-    setLoading(false);
   };
 
   const handleDownload = async () => {
