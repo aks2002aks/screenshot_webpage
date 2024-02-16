@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import HowToUse from "./HowToUse";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Screenshot from "./Screenshot";
 
 const router = createBrowserRouter([
   {
@@ -10,8 +11,16 @@ const router = createBrowserRouter([
     element: (
       <div className="">
         <Navbar />
-
         <Home />
+      </div>
+    ),
+  },
+  {
+    path: "/screenshot",
+    element: (
+      <div className="">
+        <Navbar />
+        <Screenshot />
       </div>
     ),
   },
