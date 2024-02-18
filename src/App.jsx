@@ -4,6 +4,7 @@ import Home from "./Home";
 import HowToUse from "./HowToUse";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Screenshot from "./Screenshot";
+import AllImages from "./AllImages";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,15 @@ const router = createBrowserRouter([
       <div className="">
         <Navbar />
         <Screenshot />
+      </div>
+    ),
+  },
+  {
+    path: "/all-images",
+    element: (
+      <div className="">
+        <Navbar />
+        <AllImages />
       </div>
     ),
   },
